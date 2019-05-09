@@ -1,2 +1,4 @@
 rootProject.name = 'idev-architecture'
+include 'idev-jvm'
+include 'idev-java'
 
