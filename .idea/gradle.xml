@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/idev-frontend" />
             <option value="$PROJECT_DIR$/idev-java" />
             <option value="$PROJECT_DIR$/idev-jvm" />
           </set>
