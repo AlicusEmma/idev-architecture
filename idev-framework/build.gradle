@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+//        maven {
+//            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+//        }
+//        maven {
+//            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+//        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.5"
+    }
+}
+
+plugins {
+    id 'war'
+}
+
+group 'com.idev.architecture.framework'
+version '0.0.1'
+
+apply plugin: "com.bmuschko.tomcat"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    def tomcatVersion = '8.0.45'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+
+tomcat {
+    httpPort = 8088
+    httpsPort = 8091
+    enableSSL = true
+    contextPath = 'idev'
+
+    stopPort = 8191
+
+    users {
+        user {
+            username = 'idev'
+            password = 'idev'
+            roles = ['developers', 'admin']
+        }
+
+        user {
+            username = 'idev'
+            password = 'idev'
+            roles = ['manager']
+        }
+    }
+}
