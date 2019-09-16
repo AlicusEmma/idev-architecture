@@ -1,4 +1,4 @@
-package com.idev.architecture.framework.aop;
+package com.idev.architecture.framework.aop.study;
 
 import org.springframework.aop.MethodBeforeAdvice;
 

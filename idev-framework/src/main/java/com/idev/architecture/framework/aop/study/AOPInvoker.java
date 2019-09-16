@@ -1,10 +1,10 @@
-package com.idev.architecture.framework.aop;
+package com.idev.architecture.framework.aop.study;
 
-import com.idev.architecture.framework.proxy.Hello;
-import com.idev.architecture.framework.proxy.HelloImpl;
+import com.idev.architecture.framework.proxy.study.Hello;
+import com.idev.architecture.framework.proxy.study.HelloImpl;
 import org.springframework.aop.framework.ProxyFactory;
 
-public class AOPInvker {
+public class AOPInvoker {
 
     public static void main(String[] args) {
         ProxyFactory proxyFactory = new ProxyFactory();

@@ -1,7 +1,6 @@
-package com.idev.architecture.framework.aop;
+package com.idev.architecture.framework.aop.study;
 
 import org.springframework.aop.ThrowsAdvice;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 

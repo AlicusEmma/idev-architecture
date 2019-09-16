@@ -6,10 +6,12 @@ public class HelperLoader {
 
     public static void init(){
         Class<?>[] classList = {
-          ClassHelper.class,
-          BeanHelper.class,
-          IocHelper.class
-          //
+                ClassHelper.class,
+                BeanHelper.class,
+                IocHelper.class,
+                AopHelper.class,
+                IocHelper.class,
+                ControllerHelper.class
         };
 
         for(Class<?> cls : classList){

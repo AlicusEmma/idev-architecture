@@ -1,5 +1,6 @@
 package com.idev.architecture.framework.service.impl;
 
+import com.idev.architecture.framework.annonation.Transaction;
 import com.idev.architecture.framework.model.Customer;
 import com.idev.architecture.framework.service.CustomerService;
 import com.idev.architecture.framework.util.DatabaseUtil;
@@ -13,6 +14,7 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     @Override
+    @Transaction
     public List<Customer> getCustomerList() {
         List<Customer> customerList = new ArrayList<Customer>();
         Connection conn = null;

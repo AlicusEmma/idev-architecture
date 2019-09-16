@@ -13,7 +13,7 @@ public class ExampleAppInvoker {
         /**
          * byte 占用一个字节
          */
-        byte byteMin = Byte.MIN_VALUE；
+        byte byteMin = Byte.MIN_VALUE;
 
         byte byteMax = Byte.MAX_VALUE;
 
@@ -56,7 +56,7 @@ public class ExampleAppInvoker {
 
 
 
-        System.out.println( intNum );
+//        System.out.println( intNum );
 
 
     }

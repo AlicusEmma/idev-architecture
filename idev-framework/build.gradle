@@ -59,6 +59,9 @@ dependencies {
     // https://mvnrepository.com/artifact/com.alibaba/fastjson
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
 
+    // https://mvnrepository.com/artifact/cglib/cglib
+    compile group: 'cglib', name: 'cglib', version: '3.3.0'
+
     
     def tomcatVersion = '9.0.16'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",

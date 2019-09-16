@@ -1,4 +1,4 @@
-package com.idev.architecture.framework.proxy;
+package com.idev.architecture.framework.proxy.study;
 
 public class HelloImpl implements Hello {
 

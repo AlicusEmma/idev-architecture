@@ -12,6 +12,8 @@ public class DatabaseUtil {
 
     private static final Logger log = LoggerFactory.getLogger(DatabaseUtil.class);
 
+    private static ThreadLocal<Connection> connContainer = new ThreadLocal<Connection>();
+
     private static String driver;
 
     private static String url;
@@ -40,6 +42,8 @@ public class DatabaseUtil {
             conn = DriverManager.getConnection(url,userName,password);
         }catch (SQLException e){
             log.error("get connection error ", e);
+        } finally {
+            connContainer.set(conn);
         }
 
         return conn;
@@ -51,11 +55,58 @@ public class DatabaseUtil {
                 conn.close();
             }catch (Exception e){
                 log.error("conneciton close error", e);
+            } finally {
+                connContainer.remove();
             }
         }
     }
 
+    public static void beginTransaction(){
+        Connection conn = getConnection();
+        if(conn != null){
+            try {
+                conn.setAutoCommit(false);
 
+            }catch (Exception e){
+                log.error("Begin transaciton has error", e);
+            }finally {
+                connContainer.set(conn);
+            }
+        }
+    }
 
+    /**
+     * 提交事务
+     */
+    public static void commitTransaction(){
+        Connection conn = getConnection();
+        if(conn != null){
+            try {
+                conn.commit();
+                conn.close();
+            }catch (Exception e){
+                log.error("Begin transaciton has error", e);
+            }finally {
+                connContainer.remove();
+            }
+        }
+    }
+
+    /**
+     * 回滚事务
+     */
+    public static void rollbackTransaction(){
+        Connection conn = getConnection();
+        if(conn != null){
+            try {
+                conn.rollback();
+                conn.close();
+            }catch (Exception e){
+                log.error("Begin transaciton has error", e);
+            }finally {
+                connContainer.remove();
+            }
+        }
+    }
 
 }
